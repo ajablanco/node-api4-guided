@@ -7,7 +7,11 @@ const router = express.Router();
 router.use(express.json());
 
 router.get("/", (req, res) => {
-  res.status(200).json({ api: "up" });
+  //READ
+  const message = process.env.MESSAGE || "hello from localhost";
+
+  //RETURN
+  res.status(200).json({ api: "up", message });
 });
 
 router.get("/shouts", (req, res, next) => {
